@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class HeroListAdapter extends ArrayAdapter<HeroModel> {
+public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
 
-    public HeroListAdapter(Context context, List<HeroModel> heroes) {
+    public HeroListAdapter(Context context, List<HeroDataModel> heroes) {
         super(context, 0, heroes);
     }
 
@@ -25,7 +25,7 @@ public class HeroListAdapter extends ArrayAdapter<HeroModel> {
                     R.layout.hero_list_item, parent, false);
         }
 
-        HeroModel currentHero = getItem(position);
+        HeroDataModel currentHero = getItem(position);
 
         TextView heroNameView = (TextView) listItemView.findViewById(R.id.hero_name);
 
