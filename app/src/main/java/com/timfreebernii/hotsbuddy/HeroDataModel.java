@@ -1,10 +1,11 @@
 package com.timfreebernii.hotsbuddy;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 
 public class HeroDataModel {
 
@@ -12,29 +13,46 @@ public class HeroDataModel {
     private String mHeroImage;
     private String mHeroGroup;
 
-    // TODO: Create a HeroDataModel from a JSON:
+
     public static HeroDataModel fromJson(JSONObject jsonObject) {
+
+        HeroDataModel hero = new HeroDataModel();
 
         try {
 
-            HeroDataModel heroData = new HeroDataModel();
-
-            heroData.mHeroName = jsonObject.getJSONObject(String.valueOf(0)).getString("PrimaryName");
-            heroData.mHeroImage = jsonObject.getJSONObject(String.valueOf(0)).getString("ImageURL");
-            heroData.mHeroGroup = jsonObject.getJSONObject(String.valueOf(0)).getString("Group");
-
-
-
-
-
-
-            return heroData;
+            hero.mHeroName = jsonObject.getString("PrimaryName");
+            hero.mHeroImage = jsonObject.getString("ImageURL");
+            hero.mHeroGroup = jsonObject.getString("Group");
 
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
+        return hero;
     }
+
+
+    public static ArrayList<HeroDataModel> fromJson(JSONArray jsonArray) {
+        JSONObject heroJson;
+
+        ArrayList<HeroDataModel> heroes = new ArrayList<HeroDataModel>(jsonArray.length());
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                heroJson = jsonArray.getJSONObject(i);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                continue;
+            }
+
+            HeroDataModel hero = HeroDataModel.fromJson(heroJson);
+            if (hero != null) {
+                heroes.add(hero);
+            }
+        }
+        return heroes;
+    }
+
 
     public String getHeroName() {
         return mHeroName;

@@ -3,6 +3,8 @@ package com.timfreebernii.hotsbuddy;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,47 +24,46 @@ public class HeroListActivity extends AppCompatActivity {
 
     final String HEROES_URL = "https://api.hotslogs.com/Public/Data/Heroes";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        heroListAPI(HEROES_URL);
         setContentView(R.layout.hero_list);
-//        populateHeroesList();
-        letsDoSomeNetworking(HEROES_URL);
+        // Construct the data source
+        ArrayList<HeroDataModel> arrayOfHeroes = new ArrayList<HeroDataModel>();
+        // Create the adapter to convert the array to views
+        HeroListAdapter adapter = new HeroListAdapter(this, arrayOfHeroes);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) findViewById(R.id.lvHeroes);
+
+        listView.setAdapter(adapter);
+
+
+
 
     }
 
-//    private void populateHeroesList() {
-//        // Construct the data source
-//        ArrayList<HeroDataModel> arrayOfHeroes = HeroDataModel.getHeroes();
-//        // Create the adapter to convert the array to views
-//        HeroListAdapter adapter = new HeroListAdapter(this, arrayOfHeroes);
-//        // Attach the adapter to a ListView
-//        ListView listView = (ListView) findViewById(R.id.lvHeroes);
-//        listView.setAdapter(adapter);
-//    }
-
-    private void getHeroes() {
-
-    }
-
-    private void letsDoSomeNetworking(String url) {
+    private void heroListAPI(String url) {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
         client.get(url, new JsonHttpResponseHandler() {
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("HoTS", "Success! JSON: " + response.toString());
 
-//                HeroDataModel heroData = HeroDataModel.fromJson(response);
-////                updateUI(heroData);
-//                try {
-//                    String name = response.getString(Integer.parseInt("PrimaryName"));
-//                    Log.d("HoTS", name);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    JSONArray heroesJson = response.getJSONArray("heroes");
+                    ArrayList<HeroDataModel> arrayOfHeroes = HeroDataModel.fromJson(heroesJson);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                }
+
             }
 
             @Override

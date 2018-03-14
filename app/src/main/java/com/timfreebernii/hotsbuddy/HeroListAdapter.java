@@ -18,26 +18,26 @@ public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View listItemView = convertView;
+        HeroDataModel hero = getItem(position);
 
-        if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(
                     R.layout.hero_list_item, parent, false);
         }
 
-        HeroDataModel currentHero = getItem(position);
+//        HeroDataModel currentHero = getItem(position);
 
-        TextView heroNameView = (TextView) listItemView.findViewById(R.id.hero_name);
+        TextView heroNameView = convertView.findViewById(R.id.hero_name);
 
-        TextView heroImageView = (TextView) listItemView.findViewById(R.id.hero_image);
+        TextView heroImageView = convertView.findViewById(R.id.hero_image);
 
-        TextView heroGroupView = (TextView) listItemView.findViewById(R.id.hero_group);
+        TextView heroGroupView = convertView.findViewById(R.id.hero_group);
 
-        heroNameView.setText(currentHero.getHeroName());
-        heroImageView.setText(currentHero.getHeroImage());
-        heroGroupView.setText(currentHero.getHeroGroup());
+        heroNameView.setText(hero.getHeroName());
+        heroImageView.setText(hero.getHeroImage());
+        heroGroupView.setText(hero.getHeroGroup());
 
-        return listItemView;
+        return convertView;
     }
 
 }
