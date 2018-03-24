@@ -2,6 +2,8 @@ package com.timfreebernii.hotsbuddy;
 
 import android.util.Log;
 
+import java.io.Serializable;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,7 +44,7 @@ public class HeroDataModel {
             return null;
 
         }
-//        Log.d("HeroData", "HeroData " + h);
+        Log.d("HoTS", "Hero " + h.mHeroName + " " + h.mHeroImage + " " + h.mHeroGroup);
         return h;
 
     }
@@ -55,22 +57,21 @@ public class HeroDataModel {
         for (int i = 0; i < jsonObjects.length(); i++) {
             try {
                 heroJson = jsonObjects.getJSONObject(i);
-//                Log.d("JSON", "Hero JSON " + heroJson);
+//                Log.d("HotS", "Hero JSON " + heroJson);
             } catch (JSONException e) {
                 e.printStackTrace();
                 continue;
             }
 
             HeroDataModel hero = HeroDataModel.fromJson(heroJson);
+//            Log.d("HoTS", "Hero " + hero);
             if (hero != null) {
                 heroes.add(hero);
             }
 
         }
-//        Log.d("Hero Array", "Heroe's Array" + heroes);
+//        Log.d("HoTS", "Heroes Array" + heroes);
         return heroes;
     }
-
-
 
 }

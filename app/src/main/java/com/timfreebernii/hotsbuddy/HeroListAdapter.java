@@ -19,12 +19,14 @@ public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        HeroDataModel currentHero = getItem(position);
+
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(
                     R.layout.hero_list_item, parent, false);
         }
 
-        HeroDataModel currentHero = getItem(position);
+
 
         TextView heroNameView = convertView.findViewById(R.id.hero_name);
 

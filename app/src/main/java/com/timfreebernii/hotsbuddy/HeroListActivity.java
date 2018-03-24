@@ -31,10 +31,9 @@ public class HeroListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hero_list);
         heroListAPI(HEROES_URL);
+
         ListView listView = (ListView) findViewById(R.id.lvHeroes);
         heroes = new ArrayList<HeroDataModel>();
-        Log.d("HeroArrayList", "Heroes " + heroes);
-        // Create adapter passing in the sample user data
         adapter = new HeroListAdapter(this, heroes);
         listView.setAdapter(adapter);
 
