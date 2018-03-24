@@ -3,14 +3,12 @@ package com.timfreebernii.hotsbuddy;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.widget.Adapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,25 +22,21 @@ public class HeroListActivity extends AppCompatActivity {
 
     final String HEROES_URL = "https://api.hotslogs.com/Public/Data/Heroes";
 
+    ArrayList<HeroDataModel> heroes;
+    HeroListAdapter adapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        heroListAPI(HEROES_URL);
         setContentView(R.layout.hero_list);
-        // Construct the data source
-        ArrayList<HeroDataModel> arrayOfHeroes = new ArrayList<HeroDataModel>();
-        // Create the adapter to convert the array to views
-        HeroListAdapter adapter = new HeroListAdapter(this, arrayOfHeroes);
-        // Attach the adapter to a ListView
+        heroListAPI(HEROES_URL);
         ListView listView = (ListView) findViewById(R.id.lvHeroes);
-
+        heroes = new ArrayList<HeroDataModel>();
+        Log.d("HeroArrayList", "Heroes " + heroes);
+        // Create adapter passing in the sample user data
+        adapter = new HeroListAdapter(this, heroes);
         listView.setAdapter(adapter);
-
-
-
 
     }
 
@@ -53,17 +47,11 @@ public class HeroListActivity extends AppCompatActivity {
         client.get(url, new JsonHttpResponseHandler() {
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d("HoTS", "Success! JSON: " + response.toString());
-
-                try {
-                    JSONArray heroesJson = response.getJSONArray("heroes");
-                    ArrayList<HeroDataModel> arrayOfHeroes = HeroDataModel.fromJson(heroesJson);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-
-                }
-
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                ArrayList<HeroDataModel> heroes = HeroDataModel.fromJson(response);
+                heroes.clear(); // clear existing items if needed
+                heroes.addAll(HeroDataModel.fromJson(response)); // add new items
+                adapter.notifyDataSetChanged();
             }
 
             @Override

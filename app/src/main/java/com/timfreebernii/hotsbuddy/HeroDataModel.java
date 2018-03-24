@@ -1,5 +1,7 @@
 package com.timfreebernii.hotsbuddy;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,33 +15,47 @@ public class HeroDataModel {
     private String mHeroImage;
     private String mHeroGroup;
 
+    public String getHeroName() {
+        return this.mHeroName;
+    }
+
+    public String getHeroImage() {
+        return this.mHeroImage;
+    }
+
+    public String getHeroGroup() {
+        return this.mHeroGroup;
+    }
+
 
     public static HeroDataModel fromJson(JSONObject jsonObject) {
-
-        HeroDataModel hero = new HeroDataModel();
+        HeroDataModel h = new HeroDataModel();
 
         try {
 
-            hero.mHeroName = jsonObject.getString("PrimaryName");
-            hero.mHeroImage = jsonObject.getString("ImageURL");
-            hero.mHeroGroup = jsonObject.getString("Group");
+            h.mHeroName = jsonObject.getString("PrimaryName");
+            h.mHeroImage = jsonObject.getString("ImageURL");
+            h.mHeroGroup = jsonObject.getString("Group");
 
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
+
         }
-        return hero;
+//        Log.d("HeroData", "HeroData " + h);
+        return h;
+
     }
 
 
-    public static ArrayList<HeroDataModel> fromJson(JSONArray jsonArray) {
+    public static ArrayList<HeroDataModel> fromJson(JSONArray jsonObjects) {
         JSONObject heroJson;
+        ArrayList<HeroDataModel> heroes = new ArrayList<HeroDataModel>();
 
-        ArrayList<HeroDataModel> heroes = new ArrayList<HeroDataModel>(jsonArray.length());
-
-        for (int i = 0; i < jsonArray.length(); i++) {
+        for (int i = 0; i < jsonObjects.length(); i++) {
             try {
-                heroJson = jsonArray.getJSONObject(i);
+                heroJson = jsonObjects.getJSONObject(i);
+//                Log.d("JSON", "Hero JSON " + heroJson);
             } catch (JSONException e) {
                 e.printStackTrace();
                 continue;
@@ -49,20 +65,12 @@ public class HeroDataModel {
             if (hero != null) {
                 heroes.add(hero);
             }
+
         }
+//        Log.d("Hero Array", "Heroe's Array" + heroes);
         return heroes;
     }
 
 
-    public String getHeroName() {
-        return mHeroName;
-    }
 
-    public String getHeroImage() {
-        return mHeroImage;
-    }
-
-    public String getHeroGroup() {
-        return mHeroGroup;
-    }
 }

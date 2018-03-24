@@ -1,31 +1,30 @@
 package com.timfreebernii.hotsbuddy;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.List;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import java.util.ArrayList;
 
 public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
 
-    public HeroListAdapter(Context context, List<HeroDataModel> heroes) {
+    public HeroListAdapter(HeroListActivity context, ArrayList<HeroDataModel> heroes) {
         super(context, 0, heroes);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        HeroDataModel hero = getItem(position);
-
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(
                     R.layout.hero_list_item, parent, false);
         }
 
-//        HeroDataModel currentHero = getItem(position);
+        HeroDataModel currentHero = getItem(position);
 
         TextView heroNameView = convertView.findViewById(R.id.hero_name);
 
@@ -33,9 +32,9 @@ public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
 
         TextView heroGroupView = convertView.findViewById(R.id.hero_group);
 
-        heroNameView.setText(hero.getHeroName());
-        heroImageView.setText(hero.getHeroImage());
-        heroGroupView.setText(hero.getHeroGroup());
+        heroNameView.setText(currentHero.getHeroName());
+        heroImageView.setText(currentHero.getHeroImage());
+        heroGroupView.setText(currentHero.getHeroGroup());
 
         return convertView;
     }
