@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.loopj.android.http.JsonHttpResponseHandler;
-
 import java.util.ArrayList;
 
 public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {

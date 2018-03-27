@@ -3,7 +3,6 @@ package com.timfreebernii.hotsbuddy;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Adapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -11,8 +10,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -22,9 +19,7 @@ public class HeroListActivity extends AppCompatActivity {
 
     final String HEROES_URL = "https://api.hotslogs.com/Public/Data/Heroes";
 
-    ArrayList<HeroDataModel> heroes;
     HeroListAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +28,8 @@ public class HeroListActivity extends AppCompatActivity {
         heroListAPI(HEROES_URL);
 
         ListView listView = (ListView) findViewById(R.id.lvHeroes);
-        heroes = new ArrayList<HeroDataModel>();
-        adapter = new HeroListAdapter(this, heroes);
+        adapter = new HeroListAdapter(this, new ArrayList<HeroDataModel>());
         listView.setAdapter(adapter);
-
     }
 
     private void heroListAPI(String url) {
