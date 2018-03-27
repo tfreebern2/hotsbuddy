@@ -25,17 +25,6 @@ public class HeroDataModel {
         return this.mHeroGroup;
     }
 
-
-    @Override
-    public String toString() {
-        return "HeroDataModel: { " +
-                "name=" + mHeroName  +
-                ", image=" + mHeroImage  +
-                ", group=" + mHeroGroup +
-                " }";
-    }
-
-
     public static HeroDataModel fromJsonToModel(JSONObject jsonObject) {
         HeroDataModel h = new HeroDataModel();
 
@@ -53,7 +42,6 @@ public class HeroDataModel {
         return h;
 
     }
-
 
     public static ArrayList<HeroDataModel> fromJsonToModelList(JSONArray jsonObjects) {
         JSONObject heroJson;
