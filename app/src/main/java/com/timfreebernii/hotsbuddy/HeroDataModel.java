@@ -30,7 +30,17 @@ public class HeroDataModel {
     }
 
 
-    public static HeroDataModel fromJson(JSONObject jsonObject) {
+    @Override
+    public String toString() {
+        return "HeroDataModel: { " +
+                "name=" + mHeroName  +
+                ", image=" + mHeroImage  +
+                ", group=" + mHeroGroup +
+                " }";
+    }
+
+
+    public static HeroDataModel fromJsonToModel(JSONObject jsonObject) {
         HeroDataModel h = new HeroDataModel();
 
         try {
@@ -44,33 +54,29 @@ public class HeroDataModel {
             return null;
 
         }
-        Log.d("HoTS", "Hero " + h.mHeroName + " " + h.mHeroImage + " " + h.mHeroGroup);
         return h;
 
     }
 
 
-    public static ArrayList<HeroDataModel> fromJson(JSONArray jsonObjects) {
+    public static ArrayList<HeroDataModel> fromJsonToModelList(JSONArray jsonObjects) {
         JSONObject heroJson;
         ArrayList<HeroDataModel> heroes = new ArrayList<HeroDataModel>();
 
         for (int i = 0; i < jsonObjects.length(); i++) {
             try {
                 heroJson = jsonObjects.getJSONObject(i);
-//                Log.d("HotS", "Hero JSON " + heroJson);
             } catch (JSONException e) {
                 e.printStackTrace();
                 continue;
             }
 
-            HeroDataModel hero = HeroDataModel.fromJson(heroJson);
-//            Log.d("HoTS", "Hero " + hero);
+            HeroDataModel hero = HeroDataModel.fromJsonToModel(heroJson);
             if (hero != null) {
                 heroes.add(hero);
             }
 
         }
-//        Log.d("HoTS", "Heroes Array" + heroes);
         return heroes;
     }
 
