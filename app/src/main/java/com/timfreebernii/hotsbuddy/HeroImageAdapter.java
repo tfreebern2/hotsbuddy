@@ -54,7 +54,7 @@ public class HeroImageAdapter extends BaseAdapter {
             R.drawable.gazlowe_thumb, R.drawable.genji_thumb, R.drawable.greymane_thumb, R.drawable.guldan_thumb,
             R.drawable.hanzo_thumb, R.drawable.illidan_thumb, R.drawable.jaina_thumb, R.drawable.johanna_thumb,
             R.drawable.junkrat_thumb, R.drawable.kaelthas_thumb, R.drawable.kelthuzad_thumb, R.drawable.kerrigan_thumb,
-            R.drawable.kharazim_thumb, R.drawable.leoric_thumb, R.drawable.Li_ming_thumb, R.drawable.li_li_thumb,
+            R.drawable.kharazim_thumb, R.drawable.leoric_thumb, R.drawable.li_ming_thumb, R.drawable.li_li_thumb,
             R.drawable.lt_morales_thumb, R.drawable.lunara_thumb, R.drawable.lúcio_thumb, R.drawable.maiev_thumb,
             R.drawable.malfurion_thumb, R.drawable.malthael_thumb, R.drawable.medivh_thumb, R.drawable.muradin_thumb,
             R.drawable.murky_thumb, R.drawable.nazeebo_thumb, R.drawable.nova_thumb, R.drawable.probius_thumb,
