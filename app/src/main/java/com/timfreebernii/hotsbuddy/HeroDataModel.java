@@ -25,7 +25,7 @@ public class HeroDataModel {
         return this.mHeroGroup;
     }
 
-    public static HeroDataModel fromJsonToModel(JSONObject jsonObject) {
+    public static HeroDataModel fromJson(JSONObject jsonObject) {
         HeroDataModel h = new HeroDataModel();
 
         try {
@@ -43,7 +43,7 @@ public class HeroDataModel {
 
     }
 
-    public static ArrayList<HeroDataModel> fromJsonToModelList(JSONArray jsonObjects) {
+    public static ArrayList<HeroDataModel> fromJson(JSONArray jsonObjects) {
         JSONObject heroJson;
         ArrayList<HeroDataModel> heroes = new ArrayList<HeroDataModel>();
 
@@ -55,7 +55,7 @@ public class HeroDataModel {
                 continue;
             }
 
-            HeroDataModel hero = HeroDataModel.fromJsonToModel(heroJson);
+            HeroDataModel hero = HeroDataModel.fromJson(heroJson);
             if (hero != null) {
                 heroes.add(hero);
             }

@@ -40,7 +40,7 @@ public class HeroListActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                ArrayList<HeroDataModel> myHeroes = HeroDataModel.fromJsonToModelList(response);
+                ArrayList<HeroDataModel> myHeroes = HeroDataModel.fromJson(response);
 
                 adapter.clear();
                 adapter.addAll(myHeroes);
