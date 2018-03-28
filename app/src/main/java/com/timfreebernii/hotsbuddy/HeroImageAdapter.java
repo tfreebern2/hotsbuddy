@@ -1,15 +1,10 @@
 package com.timfreebernii.hotsbuddy;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class HeroImageAdapter extends BaseAdapter {
     private Context mContext;
@@ -49,7 +44,10 @@ public class HeroImageAdapter extends BaseAdapter {
     }
 
     private Integer[] mThumbIds = {
-            R.drawable.abathur_thumb, R.drawable.alarak_thumb
+            R.drawable.abathur_thumb, R.drawable.alarak_thumb,
+            R.drawable.alexstrasza_thumb, R.drawable.ana_thumb,
+            R.drawable.anubarak_thumb, R.drawable.artanis_thumb,
+            R.drawable.arthas_thumb, R.drawable.auriel_thumb
 
     };
 
