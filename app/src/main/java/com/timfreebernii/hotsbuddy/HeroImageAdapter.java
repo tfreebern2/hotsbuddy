@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HeroImageAdapter extends BaseAdapter {
     private Context mContext;
 
@@ -30,18 +32,17 @@ public class HeroImageAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ImageView heroView;
-
+        CircleImageView heroView;
 
 
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
-            heroView = new ImageView(mContext);
-            heroView.setLayoutParams(new ViewGroup.LayoutParams(240, 240));
+            heroView = new CircleImageView(mContext);
+            heroView.setLayoutParams(new ViewGroup.LayoutParams(90, 90));
             heroView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             heroView.setPadding(8, 8, 8, 8);
         } else {
-            heroView = (ImageView) convertView;
+            heroView = (CircleImageView) convertView;
         }
 
         heroView.setImageResource(mThumbIds[position]);
