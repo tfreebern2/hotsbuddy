@@ -67,9 +67,7 @@ public class HeroImageAdapter extends BaseAdapter {
             R.drawable.stukov_thumb, R.drawable.sylvanas_thumb, R.drawable.tassadar_thumb, R.drawable.the_butcher_thumb,
             R.drawable.thrall_thumb, R.drawable.tracer_thumb, R.drawable.tychus_thumb, R.drawable.tyrael_thumb,
             R.drawable.uther_thumb, R.drawable.valla_thumb, R.drawable.varian_thumb, R.drawable.xul_thumb,
-            R.drawable.zagara_thumb, R.drawable.zarya_thumb
-
-
+            R.drawable.zagara_thumb, R.drawable.zarya_thumb, R.drawable.zertatul_thumb, R.drawable.zuljin_thumb
     };
 
 }
