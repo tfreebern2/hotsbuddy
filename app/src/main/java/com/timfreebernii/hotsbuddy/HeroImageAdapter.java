@@ -34,11 +34,11 @@ public class HeroImageAdapter extends BaseAdapter {
 
         CircleImageView heroView;
 
-
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             heroView = new CircleImageView(mContext);
-            heroView.setLayoutParams(new ViewGroup.LayoutParams(90, 90));
+            heroView.setLayoutParams(new ViewGroup.LayoutParams(240, 240));
+
             heroView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             heroView.setPadding(8, 8, 8, 8);
         } else {
