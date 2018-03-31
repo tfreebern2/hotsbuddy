@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 

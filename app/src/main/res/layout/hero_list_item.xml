@@ -6,26 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.timfreebernii.hotsbuddy.HeroActivity">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/hero_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
     <TextView
         android:id="@+id/hero_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hero Name"
-
-        />
-
-    <TextView
-        android:id="@+id/hero_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hero Image"
-        />
-
-    <TextView
-        android:id="@+id/hero_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hero Group"
-        />
+        android:layout_gravity="center"/>
 
 </LinearLayout>

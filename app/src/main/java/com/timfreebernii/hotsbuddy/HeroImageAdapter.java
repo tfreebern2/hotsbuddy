@@ -1,20 +1,22 @@
 package com.timfreebernii.hotsbuddy;
 
 import android.content.Context;
-import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HeroImageAdapter extends BaseAdapter {
     private Context mContext;
+    private LayoutInflater mInflater;
 
     public HeroImageAdapter(Context c) {
         mContext = c;
+        mInflater = LayoutInflater.from(c);
     }
 
     public int getCount() {
@@ -32,21 +34,31 @@ public class HeroImageAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        ViewHolder vh;
         CircleImageView heroView;
 
         if (convertView == null) {
-            // if it's not recycled, initialize some attributes
+            vh = new ViewHolder();
             heroView = new CircleImageView(mContext);
-            heroView.setLayoutParams(new ViewGroup.LayoutParams(240, 240));
 
-            heroView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            heroView.setPadding(8, 8, 8, 8);
+            convertView = mInflater.inflate(R.layout.hero_list_item,
+                    parent,false);
+
+            vh.heroName = convertView.findViewById(R.id.hero_name);
+            vh.heroIcon = heroView;
+            vh.heroIcon = convertView.findViewById(R.id.hero_icon);
+
+            convertView.setTag(vh);
+
         } else {
-            heroView = (CircleImageView) convertView;
+            vh = (ViewHolder) convertView.getTag();
         }
 
-        heroView.setImageResource(mThumbIds[position]);
-        return heroView;
+        vh.heroName.setText("Hero");
+        vh.heroIcon.setImageResource(mThumbIds[position]);
+        vh.heroIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        return convertView;
     }
 
     private Integer[] mThumbIds = {
