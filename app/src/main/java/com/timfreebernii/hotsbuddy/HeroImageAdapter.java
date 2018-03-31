@@ -54,12 +54,23 @@ public class HeroImageAdapter extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        vh.heroName.setText("Hero");
+        vh.heroName.setText(mHeroIds[position]);
         vh.heroIcon.setImageResource(mThumbIds[position]);
         vh.heroIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         return convertView;
     }
+
+    private String[] mHeroIds = {
+            "Abathur", "Alarak", "Alexstrasza", "Ana", "Anub'arak", "Artanis", "Arthas", "Auriel", "Azmodan", "Blaze",
+            "Brightwing", "Cassia", "Chen", "Cho", "Chromie", "D.Va", "Dehaka", "Diablo", "E.T.C", "Falstad", "Fenix",
+            "Gall", "Garrosh", "Gazlowe", "Genji", "Greymane", "Gul'dan", "Hanzo", "Illidan", "Jaina", "Johanna",
+            "Junkrat", "Kael'thas", "Kel'thuzad", "Kerrigan", "Kharazim", "Leoric", "Li-Ming", "Li Li", "Lt. Morales",
+            "Lunara", "Lúcio", "Maiev", "Malfurion", "Malthael", "Medivh", "Muradin", "Murky", "Nazeebo", "Nova",
+            "Probius", "Ragnaros", "Raynor", "Rehgar", "Rexxar", "Samuro", "Sgt. Hammer", "Sonya", "Stitches", "Stukov",
+            "Sylvanas", "Tassadar", "The Butcher", "Thrall", "Tracer", "Tychus", "Tyrael", "Uther", "Valla", "Varian",
+            "Xul", "Zagara", "Zarya", "Zeratul", "Zul'jin"
+    };
 
     private Integer[] mThumbIds = {
             R.drawable.abathur_thumb, R.drawable.alarak_thumb, R.drawable.alexstrasza_thumb, R.drawable.ana_thumb,
