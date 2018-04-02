@@ -23,6 +23,7 @@ public class HeroListActivity extends AppCompatActivity {
         GridView gridview = (GridView) this.findViewById(R.id.lvHeroes);
         gridview.setAdapter(new HeroImageAdapter(this));
 
+
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
