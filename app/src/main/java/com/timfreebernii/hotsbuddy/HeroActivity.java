@@ -4,17 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class HeroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.hero_activity);
 
-
-        Button heroRosterButton = (Button) findViewById(R.id.heroRosterButton);
+        ImageButton heroRosterButton = (ImageButton) findViewById(R.id.heroRosterButton);
 
         heroRosterButton.setOnClickListener(new View.OnClickListener() {
             @Override
