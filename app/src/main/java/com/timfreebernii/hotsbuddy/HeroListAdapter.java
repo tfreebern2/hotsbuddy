@@ -27,9 +27,6 @@ public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
 
         TextView heroNameView = convertView.findViewById(R.id.hero_name);
 
-//        TextView heroImageView = convertView.findViewById(R.id.hero_image);
-
-//        TextView heroGroupView = convertView.findViewById(R.id.hero_group);
 
         heroNameView.setText(currentHero.getHeroName());
 //        heroImageView.setText(currentHero.getHeroImage());

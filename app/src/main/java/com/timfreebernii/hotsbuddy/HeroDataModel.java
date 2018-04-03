@@ -16,16 +16,16 @@ public class HeroDataModel {
     private String mHeroGroup;
 
     public String getHeroName() {
-        return this.mHeroName;
+        return mHeroName;
     }
 
     public String getHeroImage() {
-        return this.mHeroImage;
+        return mHeroImage;
     }
 
-    public String getHeroGroup() {
-        return this.mHeroGroup;
-    }
+//    public String getHeroGroup() {
+//        return this.mHeroGroup;
+//    }
 
     public static HeroDataModel fromJsonToModel(JSONObject jsonObject) {
         HeroDataModel h = new HeroDataModel();
@@ -33,9 +33,7 @@ public class HeroDataModel {
         try {
 
             h.mHeroName = jsonObject.getString("name");
-//            h.mHeroImage = jsonObject.getString("ImageURL");
-//            h.mHeroGroup = jsonObject.getString("Group");
-            Log.d("HoTS", h.getHeroName());
+            h.mHeroImage = jsonObject.getString("icon_url");
 
         } catch (JSONException e) {
             e.printStackTrace();
