@@ -34,7 +34,7 @@ public class HeroListActivity extends AppCompatActivity {
         heroListAPI(HEROES_URL);
 
         GridView gridview = (GridView) this.findViewById(R.id.lvHeroes);
-        gridview.setAdapter(new HeroImageAdapter(this));
+        gridview.setAdapter(new HeroListAdapter(this, new ArrayList<HeroDataModel>()));
 
 //        ListView listView = (ListView) findViewById(R.id.lvHeroes);
 //        heroes = new ArrayList<HeroDataModel>();
@@ -53,7 +53,7 @@ public class HeroListActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 ArrayList<HeroDataModel> myHeroes = HeroDataModel.fromJsonToModelList(response);
 
-                Log.d("HoTS", "Hero: " + myHeroes);
+//                Log.d("HoTS", "Hero: " + myHeroes.getHeroName);
 
                 adapter.clear();
                 adapter.addAll(myHeroes);

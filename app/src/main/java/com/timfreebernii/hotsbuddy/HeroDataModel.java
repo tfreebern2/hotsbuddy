@@ -1,5 +1,7 @@
 package com.timfreebernii.hotsbuddy;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +58,7 @@ public class HeroDataModel {
             }
 
             HeroDataModel hero = HeroDataModel.fromJsonToModel(heroJson);
+            Log.d("HoTS", "Hero " + hero);
             if (hero != null) {
                 heroes.add(hero);
             }
