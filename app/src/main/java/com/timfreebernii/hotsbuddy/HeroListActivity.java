@@ -2,18 +2,19 @@ package com.timfreebernii.hotsbuddy;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 
 public class HeroListActivity extends AppCompatActivity {
+
+    final String BASE_URL = "https://hotsapi.net/api/v1";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,14 @@ public class HeroListActivity extends AppCompatActivity {
                 Toast.makeText(HeroListActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
             }
+        });
+    }
+
+    private void heroProfileAPI(String url) {
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get(url, new JsonHttpResponseHandler() {
+
         });
     }
 
