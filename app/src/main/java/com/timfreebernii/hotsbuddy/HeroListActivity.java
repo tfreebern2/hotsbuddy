@@ -23,7 +23,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class HeroListActivity extends AppCompatActivity {
 
-    final String HEROES_URL = "https://hotsapi.net/api/v1";
+    final String BASE_URL = "https://hotsapi.net/api/v1";
+    final String HEROES_URL = "https://hotsapi.net/api/v1/heroes";
 
     HeroListAdapter adapter;
 
@@ -53,11 +54,11 @@ public class HeroListActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 ArrayList<HeroDataModel> myHeroes = HeroDataModel.fromJsonToModelList(response);
 
-//                Log.d("HoTS", "Hero: " + myHeroes.getHeroName);
 
-                adapter.clear();
-                adapter.addAll(myHeroes);
-                adapter.notifyDataSetChanged();
+
+//                adapter.clear();
+//                adapter.addAll(myHeroes);
+//                adapter.notifyDataSetChanged();
             }
 
             @Override

@@ -35,6 +35,7 @@ public class HeroDataModel {
             h.mHeroName = jsonObject.getString("name");
 //            h.mHeroImage = jsonObject.getString("ImageURL");
 //            h.mHeroGroup = jsonObject.getString("Group");
+            Log.d("HoTS", h.getHeroName());
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -58,7 +59,6 @@ public class HeroDataModel {
             }
 
             HeroDataModel hero = HeroDataModel.fromJsonToModel(heroJson);
-            Log.d("HoTS", "Hero " + hero);
             if (hero != null) {
                 heroes.add(hero);
             }
