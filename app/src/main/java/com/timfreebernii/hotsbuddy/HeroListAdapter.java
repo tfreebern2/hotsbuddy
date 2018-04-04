@@ -30,7 +30,7 @@ public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
 
         HeroDataModel currentHero = getItem(position);
         ViewHolder vh;
-        CircleImageView heroView;
+        CircleImageView heroView = null;
 
         if (convertView == null) {
             vh = new ViewHolder();
@@ -40,9 +40,9 @@ public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
                     R.layout.hero_list_item, parent, false);
 
             vh.heroName = (TextView) convertView.findViewById(R.id.hero_name);
-//            vh.heroIcon = heroView;
-//            vh.heroIcon = convertView.findViewById(R.id.hero_icon);
-//
+            vh.heroIcon = heroView;
+            vh.heroIcon = convertView.findViewById(R.id.hero_icon);
+
             convertView.setTag(vh);
 
         } else {

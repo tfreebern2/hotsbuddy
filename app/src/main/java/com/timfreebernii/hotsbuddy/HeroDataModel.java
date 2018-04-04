@@ -13,6 +13,7 @@ public class HeroDataModel {
 
     private String mHeroName;
     private JSONObject mHeroImage;
+    private String mHeroImageURL;
     private String mHeroGroup;
 
     public String getHeroName() {
@@ -21,6 +22,10 @@ public class HeroDataModel {
 
     public JSONObject getHeroImage() {
         return this.mHeroImage;
+    }
+
+    public String getHeroImageURL() {
+        return this.mHeroImageURL;
     }
 
 //    public String getHeroGroup() {
@@ -34,7 +39,7 @@ public class HeroDataModel {
 
             h.mHeroName = jsonObject.getString("name");
             h.mHeroImage = jsonObject.getJSONObject("icon_url");
-            Log.d("HoTS", h.mHeroImage.getString("92x93"));
+            h.mHeroImageURL = h.mHeroImage.getString("92x93");
 
         } catch (JSONException e) {
             e.printStackTrace();
