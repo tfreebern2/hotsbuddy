@@ -12,15 +12,15 @@ import java.util.ArrayList;
 public class HeroDataModel {
 
     private String mHeroName;
-    private String mHeroImage;
+    private JSONObject mHeroImage;
     private String mHeroGroup;
 
     public String getHeroName() {
-        return mHeroName;
+        return this.mHeroName;
     }
 
-    public String getHeroImage() {
-        return mHeroImage;
+    public JSONObject getHeroImage() {
+        return this.mHeroImage;
     }
 
 //    public String getHeroGroup() {
@@ -33,7 +33,8 @@ public class HeroDataModel {
         try {
 
             h.mHeroName = jsonObject.getString("name");
-            h.mHeroImage = jsonObject.getString("icon_url");
+            h.mHeroImage = jsonObject.getJSONObject("icon_url");
+            Log.d("HoTS", h.mHeroImage.getString("92x93"));
 
         } catch (JSONException e) {
             e.printStackTrace();
