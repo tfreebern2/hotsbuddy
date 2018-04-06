@@ -33,6 +33,7 @@ public class HeroListAdapter extends ArrayAdapter<HeroDataModel> {
         ViewHolder vh;
 //        ImageView heroView;
         String url = currentHero.getHeroImageURL();
+        Log.d("url", currentHero.getHeroImageURL());
 
         if (convertView == null) {
             vh = new ViewHolder();
