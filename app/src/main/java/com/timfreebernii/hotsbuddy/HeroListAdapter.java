@@ -8,15 +8,21 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 
+import java.util.Arrays;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HeroImageAdapter extends BaseAdapter {
+public class HeroListAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
 
-    public HeroImageAdapter(Context c) {
+    public HeroListAdapter(Context c) {
         mContext = c;
         mInflater = LayoutInflater.from(c);
+    }
+
+    public String[] getHeroIds() {
+        return mHeroIds;
     }
 
     public int getCount() {
@@ -30,7 +36,6 @@ public class HeroImageAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
 
     public View getView(int position, View convertView, ViewGroup parent) {
 

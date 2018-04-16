@@ -25,43 +25,30 @@
 //        return this.mHeroGroup;
 //    }
 //
-//    public static HeroDataModel fromJsonToModel(JSONObject jsonObject) {
-//        HeroDataModel h = new HeroDataModel();
+//    public ArrayList<HeroDataModel> heroNameArray(String[] heroNames) {
+////        HeroDataModel h = new HeroDataModel();
 //
-//        try {
-//
-//            h.mHeroName = jsonObject.getString("PrimaryName");
-//            h.mHeroImage = jsonObject.getString("ImageURL");
-//            h.mHeroGroup = jsonObject.getString("Group");
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//            return null;
-//
-//        }
-//        return h;
 //
 //    }
 //
-//    public static ArrayList<HeroDataModel> fromJsonToModelList(JSONArray jsonObjects) {
-//        JSONObject heroJson;
-//        ArrayList<HeroDataModel> heroes = new ArrayList<HeroDataModel>();
 //
-//        for (int i = 0; i < jsonObjects.length(); i++) {
-//            try {
-//                heroJson = jsonObjects.getJSONObject(i);
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//                continue;
-//            }
 //
-//            HeroDataModel hero = HeroDataModel.fromJsonToModel(heroJson);
-//            if (hero != null) {
-//                heroes.add(hero);
-//            }
+//    public static void fromHeroNameArray(String[] args) {
+////        ArrayList<HeroDataModel> heroes = new ArrayList<HeroDataModel>();
+//        HeroDataModel hero;
 //
-//        }
-//        return heroes;
+//    }
+//
+//    public static void main(String[] args) {
+//        String[] strArray = new String[]{"Abathur", "Alarak", "Alexstrasza", "Ana", "Anub'arak", "Artanis", "Arthas", "Auriel", "Azmodan", "Blaze",
+//                "Brightwing", "Cassia", "Chen", "Cho", "Chromie", "D.Va", "Dehaka", "Diablo", "E.T.C", "Falstad", "Fenix",
+//                "Gall", "Garrosh", "Gazlowe", "Genji", "Greymane", "Gul'dan", "Hanzo", "Illidan", "Jaina", "Johanna",
+//                "Junkrat", "Kael'thas", "Kel'thuzad", "Kerrigan", "Kharazim", "Leoric", "Li-Ming", "Li Li", "Lt. Morales",
+//                "Lunara", "Lúcio", "Maiev", "Malfurion", "Malthael", "Medivh", "Muradin", "Murky", "Nazeebo", "Nova",
+//                "Probius", "Ragnaros", "Raynor", "Rehgar", "Rexxar", "Samuro", "Sgt. Hammer", "Sonya", "Stitches", "Stukov",
+//                "Sylvanas", "Tassadar", "The Butcher", "Thrall", "Tracer", "Tychus", "Tyrael", "Uther", "Valla", "Varian",
+//                "Xul", "Zagara", "Zarya", "Zeratul", "Zul'jin"};
+//        fromHeroNameArray(strArray);
 //    }
 //
 //}
