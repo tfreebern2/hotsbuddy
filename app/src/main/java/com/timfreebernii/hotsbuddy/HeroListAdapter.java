@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -66,7 +68,7 @@ public class HeroListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private String[] mHeroIds = {
+    public String[] mHeroIds = {
             "Abathur", "Alarak", "Alexstrasza", "Ana", "Anub'arak", "Artanis", "Arthas", "Auriel", "Azmodan", "Blaze",
             "Brightwing", "Cassia", "Chen", "Cho", "Chromie", "D.Va", "Dehaka", "Diablo", "E.T.C", "Falstad", "Fenix",
             "Gall", "Garrosh", "Gazlowe", "Genji", "Greymane", "Gul'dan", "Hanzo", "Illidan", "Jaina", "Johanna",
@@ -76,6 +78,7 @@ public class HeroListAdapter extends BaseAdapter {
             "Sylvanas", "Tassadar", "The Butcher", "Thrall", "Tracer", "Tychus", "Tyrael", "Uther", "Valla", "Varian",
             "Xul", "Zagara", "Zarya", "Zeratul", "Zul'jin"
     };
+
 
     private Integer[] mThumbIds = {
             R.drawable.abathur_thumb, R.drawable.alarak_thumb, R.drawable.alexstrasza_thumb, R.drawable.ana_thumb,

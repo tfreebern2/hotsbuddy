@@ -3,6 +3,7 @@ package com.timfreebernii.hotsbuddy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -41,6 +42,7 @@ public class HeroListActivity extends AppCompatActivity {
                 Intent intent = new Intent(HeroListActivity.this, HeroProfileActivity.class);
                 intent.putExtra(EXTRA_HERO, position);
                 startActivityForResult(intent, REQUEST_RESPONSE);
+
 
             }
         });
