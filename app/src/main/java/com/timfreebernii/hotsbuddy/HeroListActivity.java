@@ -1,6 +1,7 @@
 package com.timfreebernii.hotsbuddy;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,6 +30,10 @@ public class HeroListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hero_list);
+
+        String[] herostring = Resources.getSystem().getStringArray(R.array.heroes_array);
+
+
 
         final GridView gridview = (GridView) this.findViewById(R.id.lvHeroes);
         gridview.setAdapter(new HeroListAdapter(this));

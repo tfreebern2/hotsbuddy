@@ -1,6 +1,7 @@
 package com.timfreebernii.hotsbuddy;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class HeroListAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
+
 
     public HeroListAdapter(Context c) {
         mContext = c;
@@ -61,7 +63,8 @@ public class HeroListAdapter extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        vh.heroName.setText(mHeroIds[position]);
+//        vh.heroName.setText(mHeroIds[position]);
+        vh.heroName.setText(String.valueOf(herostring[position]));
         vh.heroIcon.setImageResource(mThumbIds[position]);
         vh.heroIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
